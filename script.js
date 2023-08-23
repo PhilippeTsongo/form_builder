@@ -9,11 +9,15 @@ $(document).ready(function() {
         generatedForm.append(field);
     });
 
+    let inputCounter = 0;
+
     generateJsonButton.on('click', function() {
         const formData = [];
         generatedForm.find('.form-field').each(function() {
             const fieldType = $(this).attr('data-type');
-            const fieldName = $(this).find('input[name="field-name"]').val();
+            // const fieldName = $(this).find('input[name="field-name"]').val();
+            const fieldName = 'field_' + inputCounter++;
+
             const fieldPlaceholder = $(this).find('input[name="field-placeholder"]').val();
             const fieldDefaultValue = $(this).find('input[name="field-default-value"]').val();
             const fieldRequired = $(this).find('input[name="field-required"]').prop('checked');
